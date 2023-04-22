@@ -1,0 +1,22 @@
+
+
+/* meio  */
+
+.meio .container{
+    flex-direction: column;
+}
+
+.meio p{
+    width: 50%;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
