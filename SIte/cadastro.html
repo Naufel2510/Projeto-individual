@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastro.css">
 </head>
 
 <body>
@@ -32,21 +32,32 @@
                 <h4>e-mail</h4>
                 <input type="text">
                 <h4>senha</h4>
-                <input type="password">
+                <input type="password" id="input_senha">
                 <h4>confirmar senha</h4>
-                <input type="password">
+                <input type="password" id="input_confirm">
+                <button onclick="cadastrar()">Cadastrar</button>
             </div>
 
+        </div>
+    </div>
+    <!-- footer  -->
+
+    <div class="footer">
+        <div class="container">
+            <span>Club NBA - 2023</span>
         </div>
     </div>
 </body>
 
 </html>
 
-<!-- footer  -->
+<script>
+    function cadastrar(){
+        var senha = input_senha.value
+        var confirmar_senha = input_confirm.value
 
-<div class="footer">
-    <div class="container">
-        <span>Club NBA - 2023</span>
-    </div>
-</div>
+        if (senha != confirmar_senha) {
+            alert("As senhas não batem")
+        } 
+    }
+</script>
