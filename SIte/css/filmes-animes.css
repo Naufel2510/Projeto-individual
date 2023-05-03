@@ -1,0 +1,22 @@
+.filmes .container{
+    flex-direction: column;
+    align-items: center;
+}
+
+.sug{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    background-color: aquamarine;
+    width: 50vw;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    border-radius: 15px;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
