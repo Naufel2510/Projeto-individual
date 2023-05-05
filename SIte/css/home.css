@@ -1,5 +1,4 @@
 
-
 /* meio  */
 
 .meio .container{
@@ -16,7 +15,7 @@
     align-items: center;
 }
 
-img{
+.meio img{
     padding-top: 2vw;
     padding-bottom: 2vw;
 }
