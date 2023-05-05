@@ -29,9 +29,10 @@
         <div class="container">
             <div class="form">
                 <h4>Nome do usuário / e-mail</h4>
-                <input type="text">
+                <input type="text" id="input_user">
                 <h4>senha</h4>
-                <input type="password">
+                <input type="password" id="input_password">
+                <button onclick="login()">Login</button>
                 <ul><a href="cadastro.html">Não têm login? Faça o cadastro!</a></ul>
             </div>
         </div>
@@ -47,3 +48,14 @@
 </body>
 
 </html>
+
+<script>
+    function login(){
+        var user = input_user.value
+        var password = input_password.value
+
+        if(user == "abc" && password == "abc"){
+            window.location.href = "selecao_de_times.html"
+        }
+    }
+</script>
