@@ -1,0 +1,20 @@
+.enquete{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 5vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    border-radius: 2vw;
+}
+
+.enquete button{
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.interior .container{
+    justify-content: center;
+}

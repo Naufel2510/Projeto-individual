@@ -8,3 +8,7 @@ senha VARCHAR(45)
 );
 
 SELECT * FROM usuario;
+
+CREATE TABLE enquete(
+
+);
