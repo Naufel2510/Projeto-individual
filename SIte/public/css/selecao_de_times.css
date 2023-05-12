@@ -1,0 +1,19 @@
+.times .container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 2vw;
+    border-radius: 1vw;
+}
+
+.times li{
+    padding: 1vh;
+}

@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    background-image: url("https://cdn.wallpapersafari.com/49/58/sCei5d.jpg");
+}
+
+/* header */
+.header{
+    background-color: blue;
+    width: 100vw;
+}
+.container{
+    display: flex;
+    width: 80%;
+    margin: auto;    
+}
+
+.header .container{
+    justify-content: space-between;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.navbar{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 25px;
+}
+
+/* footer */
+
+.footer{
+    background-color: blue;
+}
+
+.footer span{
+    color: antiquewhite;
+}
+
+.footer .container{
+    justify-content: center;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+.loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }

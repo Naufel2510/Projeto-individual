@@ -1,0 +1,29 @@
+
+/* meio  */
+
+.meio .container{
+    flex-direction: column;
+    width: 60%;
+}
+
+.meio p{
+    width: 50%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 2vw;
+}
+
+.meio img{
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+
+

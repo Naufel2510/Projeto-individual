@@ -1,0 +1,21 @@
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.melhores_jogadores{
+    display: flex;
+}
+.jogador{
+    display: flex;
+    flex-direction: column;
+}
+.estatisticas{
+    display: flex;
+    flex-direction: column;
+}
