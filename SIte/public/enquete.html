@@ -39,10 +39,10 @@
                     </div>
                 </div>
                 <h2>Qual é o melhor jogador de todos os tempos?</h2>
-                <button id="botao1" onclick="cadastrar(botao1.innerHTML)">Michael Jordan</button>
-                <button id="botao2" onclick="cadastrar(botao2.innerHTML)">Lebron James</button>
-                <button id="botao3" onclick="cadastrar(botao3.innerHTML)">Magic Johnson</button>
-                <button id="botao4" onclick="cadastrar(botao4.innerHTML)">Larry bird</button>
+                <button id="botao1" onclick="cadastrar(botao1.innerHTML, 1)">Michael Jordan</button>
+                <button id="botao2" onclick="cadastrar(botao2.innerHTML, 1)">Lebron James</button>
+                <button id="botao3" onclick="cadastrar(botao3.innerHTML, 1)">Magic Johnson</button>
+                <button id="botao4" onclick="cadastrar(botao4.innerHTML, 1)">Larry bird</button>
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
@@ -63,11 +63,12 @@
 </html>
 
 <script>
-    function cadastrar(nomeJogador) {
+    function cadastrar(nomeJogador, numEnquete) {
         aguardar();
 
         var nome = nomeJogador;
         
+        sessionStorage.ENQUETE = numEnquete;
 
         // Enviando o valor da nova input
         fetch("/enquete/cadastrar", {
@@ -78,7 +79,9 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nome
+                nomeServer: nome,
+                idServer: sessionStorage.ID_USUARIO,
+                enqueteServer: numEnquete
             })
         }).then(function (resposta) {
 
