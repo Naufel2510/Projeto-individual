@@ -74,12 +74,23 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos em branco";
 
             finalizarAguardar();
             return false;
-        }
-        else {
+        }else if(emailVar.indexOf('@') == -1){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "email inválido";
+
+            finalizarAguardar();
+            return false;
+        }else if(senhaVar != confirmacaoSenhaVar){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "senha e confirmação não batem";
+
+            finalizarAguardar();
+            return false;
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
