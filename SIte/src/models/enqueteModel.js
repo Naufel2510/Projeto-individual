@@ -20,10 +20,16 @@ function cadastrar(nome, id, enquete) {
         INSERT INTO voto (fkEnquete, fkUsuario, voto) VALUES (${Number(enquete)}, ${Number(id)}, '${nome}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    
+    var carro = `
+        UPDATE usuario SET enquete${Number(enquete)} = ${Number(enquete)} WHERE idLogin = ${Number(id)};
+    `;
+    console.log("Executando a instrução SQL: \n" + carro);
+    return database.executar(instrucao) && database.executar(carro);
 }
+
 
 module.exports = {
     cadastrar,
-    listar,
+    listar
 };

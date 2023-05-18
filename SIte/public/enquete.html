@@ -20,8 +20,8 @@
             <img src="https://logodownload.org/wp-content/uploads/2016/11/nba-logo-1.png" width="200px">
             <ul class="navbar">
                 <li><a href="home_pos_login.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="filmes.html">Filmes</a></li>
+                <li><a href="animes.html">Animes</a></li>
                 <li><a href="selecao_de_times.html">Times</a></li>
                 <li><a href="">Enquetes</a></li>
             </ul>
@@ -31,22 +31,8 @@
     <!-- interior -->
 
     <div class="interior">
-        <div class="container">
-            <div class="enquete">
-                <div class="alerta_erro">
-                    <div class="card_erro" id="cardErro">
-                        <span id="mensagem_erro"></span>
-                    </div>
-                </div>
-                <h2>Qual é o melhor jogador de todos os tempos?</h2>
-                <button id="botao1" onclick="cadastrar(botao1.innerHTML, 1)">Michael Jordan</button>
-                <button id="botao2" onclick="cadastrar(botao2.innerHTML, 1)">Lebron James</button>
-                <button id="botao3" onclick="cadastrar(botao3.innerHTML, 1)">Magic Johnson</button>
-                <button id="botao4" onclick="cadastrar(botao4.innerHTML, 1)">Larry bird</button>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-            </div>
+        <div class="container" id="div_enquete">
+            
         </div>
 
     </div>
@@ -63,7 +49,34 @@
 </html>
 
 <script>
+    var quant_enquete = 0
+    if(sessionStorage.ENQUETE_GOAT == 'null'){
+        div_enquete.innerHTML +=`
+        <div class="enquete" id="div_enquete_goat">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <h2>Qual é o melhor jogador de todos os tempos?</h2>
+                <button id="botao1" onclick="cadastrar(botao1.innerHTML, 1)">Michael Jordan</button>
+                <button id="botao2" onclick="cadastrar(botao2.innerHTML, 1)">Lebron James</button>
+                <button id="botao3" onclick="cadastrar(botao3.innerHTML, 1)">Magic Johnson</button>
+                <button id="botao4" onclick="cadastrar(botao4.innerHTML, 1)">Larry bird</button>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+            </div>
+        `
+        quant++
+    }
+    if(quant_enquete == 0){
+        alert("você já votou em todas as enquetes")
+        window.location = "home_pos_login.html"
+    }
+    
     function cadastrar(nomeJogador, numEnquete) {
+        
         aguardar();
 
         var nome = nomeJogador;
@@ -78,7 +91,7 @@
             },
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
+                // Agora vá para o arquivo routes/enquete.js
                 nomeServer: nome,
                 idServer: sessionStorage.ID_USUARIO,
                 enqueteServer: numEnquete

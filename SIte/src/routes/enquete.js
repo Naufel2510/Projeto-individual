@@ -16,6 +16,7 @@ router.post("/cadastrar", function (req, res) {
     enqueteController.cadastrar(req, res);
 })
 
+
 router.post("/autenticar", function (req, res) {
     enqueteController.entrar(req, res);
 });

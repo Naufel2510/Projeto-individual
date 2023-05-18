@@ -9,7 +9,6 @@ senha VARCHAR(45)
 
 SELECT * FROM voto;
 
-truncate table voto;
 
  SELECT * FROM usuario JOIN voto ON idLogin = fkUsuario WHERE usuario.email = 'felipe.santiago@sptech.school' AND usuario.senha = 'abc';
 
@@ -34,4 +33,8 @@ constraint pkCompostaEnquete primary key (fkEnquete, fkUsuario, voto)
 
 SELECT * FROM voto JOIN usuario ON fkUsuario = idLogin WHERE email = '${sessionStorage.EMAIL_USUARIO}';
 
-truncate table voto;
+ALTER TABLE usuario DROP COLUMN enquete_goat;
+
+SELECT * FROM usuario;
+
+select * from voto;
