@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/selecao_de_times.css">
+    <script src="js/funcoes.js"></script>
 </head>
 
 <body>
@@ -27,45 +28,55 @@
 
     <div class="times">
         <div class="container">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <div class="lista">
                 <h2>Conferência oeste</h2>
                 <ul>
-                    <li><a href="página_time.html">Dallas Mavericks</a></li>
-                    <li><a href="página_time.html">Denver Nuggets</a></li>
-                    <li><a href="página_time.html">Golden State Warriors</a></li>
-                    <li><a href="página_time.html">Houston Rockets</a></li>
-                    <li><a href="página_time.html">Los Angeles Clippers</a></li>
-                    <li><a href="página_time.html">Los Angeles Lakers</a></li>
-                    <li><a href="página_time.html">Memphis Grizzlies</a></li>
-                    <li><a href="página_time.html">Minnesota Timberwolves</a></li>
-                    <li><a href="página_time.html">New Orleans Pelicans</a></li>
-                    <li><a href="página_time.html">Oklahoma City Thunder</a></li>
-                    <li><a href="página_time.html">Phoenix Suns</a></li>
-                    <li><a href="página_time.html">Portland Trail Blazers</a></li>
-                    <li><a href="página_time.html">Sacramento Kings</a></li>
-                    <li><a href="página_time.html">San Antonio Spurs</a></li>
-                    <li><a href="página_time.html">Utah Jazz</a></li>
+                    <button onclick="time(1)">Dallas Mavericks</button>
+                    <button onclick="time(2)">Denver Nuggets</button>
+                    <button onclick="time(3)">Golden State Warriors</button>
+                    <button onclick="time(4)">Houston Rockets</button>
+                    <button onclick="time(5)">Los Angeles Clippers</button>
+                    <button onclick="time(6)">Los Angeles Lakers</button>
+                    <button onclick="time(7)">Memphis Grizzlies</button>
+                    <button onclick="time(8)">Minnesota Timberwolves</button>
+                    <button onclick="time(9)">New Orleans Pelicans</button>
+                    <button onclick="time(10)">Oklahoma City Thunder</button>
+                    <button onclick="time(11)">Phoenix Suns</button>
+                    <button onclick="time(12)">Portland Trail Blazers</button>
+                    <button onclick="time(13)">Sacramento Kings</button>
+                    <button onclick="time(14)">San Antonio Spurs</button>
+                    <button onclick="time(15)">Utah Jazz</button>
+                    
                 </ul>
             </div>
             <div class="lista">
                 <h2>Conferência leste</h2>
                 <ul>
-                    <li><a href="página_time.html">Atlanta Hawks</a></li>
-                    <li><a href="página_time.html">Boston Celtics</a></li>
-                    <li><a href="página_time.html">Brooklyn Nets</a></li>
-                    <li><a href="página_time.html">Charlotte Hornets</a></li>
-                    <li><a href="página_time.html">Chicago Bulls</a></li>
-                    <li><a href="página_time.html">Cleveland Cavaliers</a></li>
-                    <li><a href="página_time.html">Detroit Pistons</a></li>
-                    <li><a href="página_time.html">Indiana Pacers</a></li>
-                    <li><a href="página_time.html">Miami Heat</a></li>
-                    <li><a href="página_time.html">Milwaukee Bucks</a></li>
-                    <li><a href="página_time.html">New York Knicks</a></li>
-                    <li><a href="página_time.html">Orlando Magic</a></li>
-                    <li><a href="página_time.html">Philadelphia 76ers</a></li>
-                    <li><a href="página_time.html">Toronto Raptors</a></li>
-                    <li><a href="página_time.html">Washington Wizards</a></li>
+                    <button onclick="time(16)">Atlanta Hawks</button>
+                    <button onclick="time(17)">Boston Celtics</button>
+                    <button onclick="time(18)">Brooklyn Nets</button>
+                    <button onclick="time(19)">Charlotte Hornets</button>
+                    <button onclick="time(20)">Chicago Bulls</button>
+                    <button onclick="time(21)">Cleveland Cavaliers</button>
+                    <button onclick="time(22)">Detroit Pistons</button>
+                    <button onclick="time(23)">Indiana Pacers</button>
+                    <button onclick="time(24)">Miami Heat</button>
+                    <button onclick="time(25)">Milwaukee Bucks</button>
+                    <button onclick="time(26)">New York Knicks</button>
+                    <button onclick="time(27)">Orlando Magic</button>
+                    <button onclick="time(28)">Philadelphia 76ers</button>
+                    <button onclick="time(29)">Toronto Raptors</button>
+                    <button onclick="time(30)">Washington Wizards</button>
+
                 </ul>
+            </div>
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
             </div>
         </div>
     </div>
@@ -80,3 +91,63 @@
 </body>
 
 </html>
+
+<script>
+    function time(time) {
+
+
+        fetch("/time/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                timeServer: time
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.NOME_TIME = json.nome;
+                    sessionStorage.CHAMP = json.champ;
+                    sessionStorage.ESTADIO = json.idLogin;
+                    sessionStorage.NOMES_ANTIGOS = json.nomes_antigos;
+                    sessionStorage.NOME_JOGADOR =json.nome_jogador;
+                    sessionStorage.PTS =json.pts;
+                    sessionStorage.TRB =json.trb;
+                    sessionStorage.AST =json.ast;
+                    sessionStorage.FG =json.fg;
+                    sessionStorage.FG3 =json.fg3;
+                    sessionStorage.FT =json.ft;
+                    
+
+                    setTimeout(function () {
+                        window.location = "pagina_time.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
