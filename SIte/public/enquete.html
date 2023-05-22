@@ -35,7 +35,7 @@
             
         </div>
 
-    </div>
+    </div> <li><a href="resultado_enquete.html"></a></li>
 
     <!-- footer  -->
 
@@ -68,12 +68,64 @@
                 </div>
             </div>
         `
-        quant++
+        quant_enquete++
+    }
+    if(sessionStorage.ENQUETE_FILME == 'null'){
+        div_enquete.innerHTML +=`
+        <div class="enquete" id="div_enquete_goat2">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro2">
+                        <span id="mensagem_erro2"></span>
+                    </div>
+                </div>
+                <h2>Qual é o melhor jogador de todos os tempos?</h2>
+                <button id="botao5" onclick="cadastrar(botao5.innerHTML, 2)">Coach Carter</button>
+                <button id="botao6" onclick="cadastrar(botao6.innerHTML, 2)">Hustle</button>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+            </div>
+        `
+        quant_enquete++
+    }
+    if(sessionStorage.ENQUETE_ANIME == 'null'){
+        div_enquete.innerHTML +=`
+        <div class="enquete" id="div_enquete_goat3">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro3">
+                        <span id="mensagem_erro3"></span>
+                    </div>
+                </div>
+                <h2>Qual é o melhor jogador de todos os tempos?</h2>
+                <button id="botao7" onclick="cadastrar(botao7.innerHTML, 3)">Kuroko no basquete</button>
+                <button id="botao8" onclick="cadastrar(botao8.innerHTML, 3)">Slam dunk</button>
+                <button id="botao9" onclick="cadastrar(botao9.innerHTML, 3)">Ahio no sora</button>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+            </div>
+        `
+        quant_enquete++
     }
     if(quant_enquete == 0){
-        alert("você já votou em todas as enquetes")
-        window.location = "home_pos_login.html"
+        div_enquete.innerHTML = `
+        <div class = 'enquete'>
+        Você já votou em todas as enquetes. Veja os resultados
+        <li><a href="resultado_enquete.html">Resultado Enquetes</a></li>
+        </div>
+        `
+        
     }
+    if(quant_enquete > 0){
+        div_enquete.innerHTML += `
+        <div class = 'enquete'>
+        Veja os resultados
+        <li><a href="resultado_enquete.html">Resultado Enquetes</a></li>
+        </div>
+        `
+        
+    }
+    
     
     function cadastrar(nomeJogador, numEnquete) {
         
@@ -101,15 +153,37 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Resposta de enquete registrada com sucesso!!!";
-
-                sessionStorage.ENQUETE_GOAT = '1'
-
-                setTimeout(() => {
+                
+                
+                if(numEnquete == 1){
+                    cardErro.style.display = "block";
+                    sessionStorage.ENQUETE_GOAT = '1'
+                    mensagem_erro.innerHTML = "Resposta de enquete registrada com sucesso!!!";
+                    setTimeout(() => {
                     window.location = "enquete.html";
                 }, "2000")
+                }
+                if(numEnquete == 2){
+                    cardErro2.style.display = "block";
+                    sessionStorage.ENQUETE_FILME = '1'
+                    mensagem_erro2.innerHTML = "Resposta de enquete registrada com sucesso!!!";
+                    setTimeout(() => {
+                    window.location = "enquete.html";
+                }, "2000")
+                }
+                if(numEnquete == 3){
+                    cardErro3.style.display = "block";
+                    sessionStorage.ENQUETE_ANIME = '1'
+                    mensagem_erro3.innerHTML = "Resposta de enquete registrada com sucesso!!!";
+                    
+                    setTimeout(() => {
+                    window.location = "enquete.html";
+                }, "2000")
+                }
+                
+
+                
 
                 limparFormulario();
                 finalizarAguardar();

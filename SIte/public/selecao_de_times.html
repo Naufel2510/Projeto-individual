@@ -20,6 +20,7 @@
                 <li><a href="home_pos_login.html">Home</a></li>
                 <li><a href="filmes.html">Filmes</a></li>
                 <li><a href="animes.html">Animes</a></li>
+                <li><a href="enquete.html">Enquetes</a></li>
             </ul>
         </div>
     </div>
@@ -28,11 +29,7 @@
 
     <div class="times">
         <div class="container">
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
-            </div>
+            
             <div class="lista">
                 <h2>Conferência oeste</h2>
                 <ul>
@@ -51,7 +48,7 @@
                     <button onclick="time(13)">Sacramento Kings</button>
                     <button onclick="time(14)">San Antonio Spurs</button>
                     <button onclick="time(15)">Utah Jazz</button>
-                    
+
                 </ul>
             </div>
             <div class="lista">
@@ -118,14 +115,14 @@
                     sessionStorage.CHAMP = json.champ;
                     sessionStorage.ESTADIO = json.idLogin;
                     sessionStorage.NOMES_ANTIGOS = json.nomes_antigos;
-                    sessionStorage.NOME_JOGADOR =json.nome_jogador;
-                    sessionStorage.PTS =json.pts;
-                    sessionStorage.TRB =json.trb;
-                    sessionStorage.AST =json.ast;
-                    sessionStorage.FG =json.fg;
-                    sessionStorage.FG3 =json.fg3;
-                    sessionStorage.FT =json.ft;
-                    
+                    sessionStorage.NOME_JOGADOR = json.nome_jogador;
+                    sessionStorage.PTS = json.pts;
+                    sessionStorage.TRB = json.trb;
+                    sessionStorage.AST = json.ast;
+                    sessionStorage.FG = json.fg;
+                    sessionStorage.FG3 = json.fg3;
+                    sessionStorage.FT = json.ft;
+
 
                     setTimeout(function () {
                         window.location = "pagina_time.html";
@@ -137,7 +134,7 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                
+
             }
 
         }).catch(function (erro) {

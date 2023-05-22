@@ -7,7 +7,7 @@ email VARCHAR(45),
 senha VARCHAR(45)
 );
 
-SELECT * FROM voto;
+SELECT * FROM team;
 
 
  SELECT * FROM usuario JOIN voto ON idLogin = fkUsuario WHERE usuario.email = 'felipe.santiago@sptech.school' AND usuario.senha = 'abc';
@@ -35,7 +35,9 @@ SELECT * FROM voto JOIN usuario ON fkUsuario = idLogin WHERE email = '${sessionS
 
 ALTER TABLE usuario ADD COLUMN enquete1 INT;
 
-SELECT * FROM usuario;
+SELECT * FROM jogador;
+
+
 
 select * from voto;
 TRUNCATE TABLE voto;
@@ -48,10 +50,11 @@ estadio VARCHAR (45),
 nomes_antigos VARCHAR (100)
 );
 
+SELECT * FROM usuario;
 CREATE TABLE jogador (
 idJogador INT,
 fkTime INT,
-nome VARCHAR(45),
+nome_jogador VARCHAR(45),
 pts VARCHAR(45),
 trb VARCHAR(45),
 ast VARCHAR(45),

@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resultado_enquete.css">
     <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <title>Document</title>
 </head>
 
@@ -21,13 +24,41 @@
                 <li><a href="animes.html">Animes</a></li>
                 <li><a href="selecao_de_times.html">Times</a></li>
                 <li><a href="enquete.html">Enquetes</a></li>
-                <li><a href="resultado_enquete.html">Resultado Enquetes</a></li>
             </ul>
         </div>
     </div>
 
     <!-- resultados -->
+    <div class="container">
+        <div class="chart">
+            <span>Enquete GOAT</span>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
 
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="chart">
+            <span>Enquete filme</span>
+            <div>
+                <canvas id="myChart2"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="chart">
+            <span>Enquete anime</span>
+            <div>
+                <canvas id="myChart3"></canvas>
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- footer  -->
@@ -42,6 +73,8 @@
 </html>
 
 <script>
+
+    var enquete1 = []
     function dados(voto) {
         fetch("/dados/autenticar", {
             method: "POST",
@@ -61,8 +94,7 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.VOTO = json.voto;
-                    
+                    enquete1.push(json.voto)
                 });
 
             } else {
@@ -78,9 +110,111 @@
 
         return false;
     }
-    var voto = 'Michael Jordan'
-    dados(voto)
 
+    var voto1_enquete1 = 'Michael Jordan'
+
+    dados(voto1_enquete1)
+
+    var voto2_enquete1 = 'Lebron James'
+
+    dados(voto2_enquete1)
+
+    var voto3_enquete1 = 'Larry Bird'
+
+    dados(voto3_enquete1)
+
+    var voto4_enquete1 = 'Magic Johnson'
+
+    dados(voto4_enquete1)
+
+    var voto1_enquete2 = 'Coach Carter'
+
+    dados(voto1_enquete2)
+
+    var voto2_enquete2 = 'Hustle'
+
+    dados(voto2_enquete2)
+
+    var voto1_enquete3 = 'Kuroko no basquete'
+
+    dados(voto1_enquete3)
+
+    var voto2_enquete3 = 'Slam dunk'
     
+    dados(voto2_enquete3)
+
+    var voto3_enquete3 = 'Ahio no sora'
+
+    dados(voto3_enquete3)
+
+    // chart.js
+
+
+
+    const ctx = document.getElementById('myChart');
+
+    const ctx2 = document.getElementById('myChart2');
+
+    const ctx3 = document.getElementById('myChart3');
+
+
+
+
+    setTimeout(() => {
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Michael Jordan', 'Lebron James', 'Larry Bird', 'Magic Johnson'],
+                datasets: [{
+                    label: 'Enquete GOAT',
+                    data: [enquete1[0], enquete1[1], enquete1[2], enquete1[3]],
+                    borderWidth: 1
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }, 2000);
+    setTimeout(() => {
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Coach Carter', 'Hustle'],
+                datasets: [{
+                    label: 'Enquete Filme',
+                    data: [enquete1[4], enquete1[5]],
+                    borderWidth: 1
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }, 2500);
+    setTimeout(() => {
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Kuroko no basket', 'Slam dunk', 'Ahio no sora'],
+                datasets: [{
+                    label: 'Enquete Anime',
+                    data: [enquete1[6], enquete1[7], enquete1[8]],
+                    borderWidth: 1
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }, 2000);
+
+
 
 </script>

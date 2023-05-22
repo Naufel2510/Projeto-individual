@@ -20,69 +20,72 @@
                 <li><a href="filmes.html">Filmes</a></li>
                 <li><a href="animes.html">Animes</a></li>
                 <li><a href="selecao_de_times.html">Times</a></li>
-                <li><a href="resultado_enquete.html">Resultado Enquetes</a></li>
+                <li><a href="enquete.html">Enquetes</a></li>
             </ul>
         </div>
     </div>
 
     <!-- interior  -->
 
-    <div class="time">
+    <div class="pagina_time">
         <div class="container">
-            <div class="conteudo">
-                <div class="time">
-                    <div class="titulo_time">
-                        <img src="https://logodetimes.com/times/boston-celtics/logo-boston-celtics-4096.png"
-                            width="200px">
-                    </div>
-                    <div class="info" id="div_info">
-                        <span>Campeonatos vencidos:</span> <!-- número e data -->
-                        <span>Data de criação:</span>
-                        <span>Estádio do time:</span>
-                        <img src="" width="">
-                        <span>Nomes antigos:</span> <!-- nome e quando mudou. obs: talvez não tenha  -->
-                    </div>
+
+            <div class="time">
+                <div class="titulo_time">
+                    <img src="https://logodetimes.com/times/boston-celtics/logo-boston-celtics-4096.png" width="200px">
                 </div>
-                <div class="melhores_jogadores" id="div_melhor_jogador1">
-                    <div class="jogador">
-                        <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp" width="200px">
-                        <span></span>
-                        <span>PPG:</span>
-                        <span>APG:</span>
-                        <span>RBG:</span>
-                        <span>FG%:</span>
-                        <span>FT%:</span>
-                        <span>Número de campeonatos vencidos: </span>
-                        <span>Número de temporadas: </span>
-                        <span>Times em que jogou:</span>
-                    
-                    </div>
-                    <div class="jogador">
-                        <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp" width="200px">
-                        <span>Nome do jogador</span>
-                        <span>PPG:</span>
-                        <span>APG:</span>
-                        <span>RBG:</span>
-                        <span>FG%:</span>
-                        <span>FT%:</span>
-                        <span>Número de campeonatos vencidos: </span>
-                        <span>Número de temporadas: </span>
-                        <span>Times em que jogou:</span>
-                    </div>
-                    <div class="jogador">
-                        <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp" width="200px">
-                        <span>Nome do jogador</span>
-                        <span>PPG:</span>
-                        <span>APG:</span>
-                        <span>RBG:</span>
-                        <span>FG%:</span>
-                        <span>FT%:</span>
-                        <span>Número de campeonatos vencidos: </span>
-                        <span>Número de temporadas: </span>
-                        <span>Times em que jogou:</span>
-                    </div>
+                <div class="info" id="div_info">
+                    <span class = "nome_time">Nome do time</span>
+                    <span>Campeonatos vencidos:</span> <!-- número e data -->
+                    <span>Data de criação:</span>
+                    <span>Estádio do time:</span>
+                    <img src="" width="">
+                    <span>Nomes antigos:</span> <!-- nome e quando mudou. obs: talvez não tenha  -->
                 </div>
             </div>
+            <div class="melhores_jogadores" id="div_melhor_jogador1">
+                <div class="jogador">
+                    <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp"
+                        width="200px">
+                    <span></span>
+                    <span>PPG:</span>
+                    <span>APG:</span>
+                    <span>RBG:</span>
+                    <span>FG%:</span>
+                    <span>FT%:</span>
+                    <span>Número de campeonatos vencidos: </span>
+                    <span>Número de temporadas: </span>
+                    <span>Times em que jogou:</span>
+
+                </div>
+                <div class="jogador">
+                    <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp"
+                        width="200px">
+                    <span>Nome do jogador</span>
+                    <span>PPG:</span>
+                    <span>APG:</span>
+                    <span>RBG:</span>
+                    <span>FG%:</span>
+                    <span>FT%:</span>
+                    <span>Número de campeonatos vencidos: </span>
+                    <span>Número de temporadas: </span>
+                    <span>Times em que jogou:</span>
+                </div>
+                <div class="jogador">
+                    <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp"
+                        width="200px">
+                    <span>Nome do jogador</span>
+                    <span>PPG:</span>
+                    <span>APG:</span>
+                    <span>RBG:</span>
+                    <span>FG%:</span>
+                    <span>FT%:</span>
+                    <span>Número de campeonatos vencidos: </span>
+                    <span>Número de temporadas: </span>
+                    <span>Times em que jogou:</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -101,21 +104,21 @@
     div_melhor_jogador1.innerHTML = `
     <div class="jogador">
                         <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp" width="200px">
-                        <span>${sessionStorage.NOME_JOGADOR}</span>
-                        <span>PPG:${sessionStorage.PTS}</span>
-                        <span>APG:${sessionStorage.AST}</span>
-                        <span>RBG:${sessionStorage.TRB}</span>
-                        <span>FG%:${sessionStorage.FG}</span>
-                        <span>FG3%:${sessionStorage.FG3}</span>
-                        <span>FT%:${sessionStorage.FT}</span>
+                        <span class = "nome_time">${sessionStorage.NOME_JOGADOR}</span>
+                        <span>PPG: ${sessionStorage.PTS}</span>
+                        <span>APG: ${sessionStorage.AST}</span>
+                        <span>RBG: ${sessionStorage.TRB}</span>
+                        <span>FG%: ${sessionStorage.FG}</span>
+                        <span>FG3%: ${sessionStorage.FG3}</span>
+                        <span>FT%: ${sessionStorage.FT}</span>
                     </div>
     `
     div_info.innerHTML = `
-                        <span>${sessionStorage.NOME_TIME}</span>
-                        <span>Campeonatos vencidos:${sessionStorage.CHAMP}</span> 
+                        <span class = "nome_time"> ${sessionStorage.NOME_TIME}</span>
+                        <span>Campeonatos vencidos: ${sessionStorage.CHAMP}</span> 
                         <span>Data de criação:</span>
                         <span>Estádio do time:</span>
                         <img src="" width="">
-                        <span>Nomes antigos:${sessionStorage.NOMES_ANTIGOS}</span
+                        <span>Nomes antigos: ${sessionStorage.NOMES_ANTIGOS}</span
     `
 </script>
