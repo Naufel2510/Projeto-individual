@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/resultado_enquete.css">
     <script src="js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <title>Document</title>
 </head>
 
@@ -19,7 +19,7 @@
         <div class="container">
             <img src="https://logodownload.org/wp-content/uploads/2016/11/nba-logo-1.png" width="200px">
             <ul class="navbar">
-                <li><a href="">Home</a></li>
+                <li><a href="home_pos_login.html">Home</a></li>
                 <li><a href="filmes.html">Filmes</a></li>
                 <li><a href="animes.html">Animes</a></li>
                 <li><a href="selecao_de_times.html">Times</a></li>
@@ -75,6 +75,12 @@
 <script>
 
     var enquete1 = []
+    var enquete1_label = []
+    var enquete2 = []
+    var enquete2_label = []
+    var enquete3 = []
+    var enquete3_label = []
+
     function dados(voto) {
         fetch("/dados/autenticar", {
             method: "POST",
@@ -93,8 +99,19 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    if (json.fkEnquete == '1') {
+                        enquete1.push(json.voto)
+                        enquete1_label.push(voto)
 
-                    enquete1.push(json.voto)
+                    }
+                    if (json.fkEnquete == '2') {
+                        enquete2.push(json.voto)
+                        enquete2_label.push(voto)
+                    }
+                    if (json.fkEnquete == '3') {
+                        enquete3.push(json.voto)
+                        enquete3_label.push(voto)
+                    }
                 });
 
             } else {
@@ -140,7 +157,7 @@
     dados(voto1_enquete3)
 
     var voto2_enquete3 = 'Slam dunk'
-    
+
     dados(voto2_enquete3)
 
     var voto3_enquete3 = 'Ahio no sora'
@@ -164,7 +181,7 @@
         new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Michael Jordan', 'Lebron James', 'Larry Bird', 'Magic Johnson'],
+                labels: [enquete1_label[0], enquete1_label[1], enquete1_label[2], enquete1_label[3]],
                 datasets: [{
                     label: 'Enquete GOAT',
                     data: [enquete1[0], enquete1[1], enquete1[2], enquete1[3]],
@@ -182,10 +199,10 @@
         new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: ['Coach Carter', 'Hustle'],
+                labels: [enquete2_label[0], enquete2_label[1]],
                 datasets: [{
                     label: 'Enquete Filme',
-                    data: [enquete1[4], enquete1[5]],
+                    data: [enquete2[0], enquete2[1]],
                     borderWidth: 1
                 }
                 ]
@@ -200,10 +217,10 @@
         new Chart(ctx3, {
             type: 'pie',
             data: {
-                labels: ['Kuroko no basket', 'Slam dunk', 'Ahio no sora'],
+                labels: [enquete3_label[0], enquete3_label[1], enquete3_label[2]],
                 datasets: [{
                     label: 'Enquete Anime',
-                    data: [enquete1[6], enquete1[7], enquete1[8]],
+                    data: [enquete3[0], enquete3[1], enquete3[2]],
                     borderWidth: 1
                 }
                 ]

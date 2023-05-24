@@ -7,7 +7,7 @@ email VARCHAR(45),
 senha VARCHAR(45)
 );
 
-SELECT * FROM team;
+SELECT * FROM enquete;
 
 
  SELECT * FROM usuario JOIN voto ON idLogin = fkUsuario WHERE usuario.email = 'felipe.santiago@sptech.school' AND usuario.senha = 'abc';
@@ -19,6 +19,11 @@ nome VARCHAR (45)
 
 INSERT INTO enquete VALUES
 	(null, 'Melhor JOgador de todos os tempos');
+
+INSERT INTO enquete VALUES
+	(null, 'Melhor Filme'),
+    (null, 'Melhor Anime');
+    
     
 
 
@@ -31,15 +36,17 @@ constraint fkUsuario foreign key (fkUsuario) references usuario(idLogin),
 constraint pkCompostaEnquete primary key (fkEnquete, fkUsuario, voto)
 );
 
-SELECT * FROM voto JOIN usuario ON fkUsuario = idLogin WHERE email = '${sessionStorage.EMAIL_USUARIO}';
 
-ALTER TABLE usuario ADD COLUMN enquete1 INT;
-
-SELECT * FROM jogador;
+ALTER TABLE usuario add COLUMN enquete3 int;
 
 
 
+update jogador set fg3 ='32.1%', ft = '75.3%' WHERE fkTime = 7;
+
+
+use club_nba;
 select * from voto;
+SELECT count(voto) as voto, fkEnquete FROM voto WHERE voto = 'Michael Jordan' group by fkEnquete;
 TRUNCATE TABLE voto;
 
 CREATE TABLE team (
