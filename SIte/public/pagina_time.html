@@ -30,7 +30,7 @@
     <div class="pagina_time">
         <div class="container">
 
-            <div class="time">
+            <div class="time" id="div_time">
                 <div class="titulo_time">
                     <img src="https://logodetimes.com/times/boston-celtics/logo-boston-celtics-4096.png" width="200px">
                 </div>
@@ -103,7 +103,7 @@
 <script>
     div_melhor_jogador1.innerHTML = `
     <div class="jogador">
-                        <img src="https://noticiasdebasquete.com.br/wp-content/uploads/2022/11/GQ-MichaelJordan-041720-768x1024.webp" width="200px">
+                        <img src="${sessionStorage.FOTO_JOGADOR}" width="200px">
                         <span class = "nome_time">${sessionStorage.NOME_JOGADOR}</span>
                         <span>PPG: ${sessionStorage.PTS}</span>
                         <span>APG: ${sessionStorage.AST}</span>
@@ -113,12 +113,23 @@
                         <span>FT%: ${sessionStorage.FT}</span>
                     </div>
     `
-    div_info.innerHTML = `
-                        <span class = "nome_time"> ${sessionStorage.NOME_TIME}</span>
+    // div_info.innerHTML = `
+    //                     <span class = "nome_time"> ${sessionStorage.NOME_TIME}</span>
+    //                     <span>Campeonatos vencidos: ${sessionStorage.CHAMP}</span> 
+    //                     <span>Data de criação:</span>
+    //                     <span>Estádio do time:</span>
+    //                     <img src="" width="">
+    //                     <span>Nomes antigos: ${sessionStorage.NOMES_ANTIGOS}</span
+    // `
+    
+    div_time.innerHTML = `
+    <div class="titulo_time">
+                    <img src="${sessionStorage.FOTO_TIME}" width="200px">
+                </div>
+                <div class="info" id="div_info">
+                    <span class = "nome_time"> ${sessionStorage.NOME_TIME}</span>
                         <span>Campeonatos vencidos: ${sessionStorage.CHAMP}</span> 
-                        <span>Data de criação:</span>
-                        <span>Estádio do time:</span>
-                        <img src="" width="">
                         <span>Nomes antigos: ${sessionStorage.NOMES_ANTIGOS}</span
+                </div>
     `
 </script>
