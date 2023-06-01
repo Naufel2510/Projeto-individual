@@ -18,11 +18,18 @@
     margin-top: 5vh;
     margin-bottom: 5vh;
     border-radius: 2vw;
+    padding: 4vw;
 }
 
 .meio img{
     padding-top: 2vw;
     padding-bottom: 2vw;
+}
+
+.card p{
+    width: auto;
+    text-align: justify;
+    font-size: 20px;
 }
 
 
