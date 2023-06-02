@@ -4,10 +4,15 @@ CREATE TABLE usuario(
 idLogin INT PRIMARY KEY auto_increment,
 usuario VARCHAR(45),
 email VARCHAR(45),
-senha VARCHAR(45)
+senha VARCHAR(45),
+enquete1 INT,
+enquete2 INT,
+enquete3 INT
 );
 
-SELECT * FROM enquete;
+SELECT * FROM usuario;
+
+desc usuario;
 
 
  SELECT * FROM usuario JOIN voto ON idLogin = fkUsuario WHERE usuario.email = 'felipe.santiago@sptech.school' AND usuario.senha = 'abc';
