@@ -36,7 +36,9 @@ body{
 /* footer */
 
 .footer{
+    display: flex;
     background-color: black;
+    width: 100vw;
 }
 
 .footer span{
