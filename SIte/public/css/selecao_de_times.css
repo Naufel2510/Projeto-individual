@@ -13,6 +13,7 @@
     margin-bottom: 5vh;
     padding: 2vw;
     border-radius: 1vw;
+    box-shadow: 4px 4px 4px 4px;
 }
 
 .lista ul{
@@ -25,4 +26,5 @@ button{
     margin-top: 1vh;
     background-color: rgb(24, 24, 252);
     color: bisque;
+    cursor: pointer;
 }

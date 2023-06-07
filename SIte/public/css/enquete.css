@@ -7,6 +7,7 @@
     margin-top: 5vw;
     margin-bottom: 5vw;
     border-radius: 2vw;
+    box-shadow: 4px 4px 4px 4px;
 }
 
 .enquete button{
@@ -18,7 +19,7 @@
 
 .interior .container{
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 80vh;
 }
-
