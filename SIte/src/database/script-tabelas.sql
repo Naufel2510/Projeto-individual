@@ -10,7 +10,8 @@ enquete2 INT,
 enquete3 INT
 );
 
-SELECT * FROM usuario;
+SELECT * FROM voto;
+SELECT count(voto) as voto, fkEnquete FROM voto WHERE voto = 'Air' GROUP BY fkEnquete;
 
 desc usuario;
 
